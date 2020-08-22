@@ -1,5 +1,5 @@
 
-This is a google clone app and created using React and Firebase for hosting.
+This is a google clone app and built with React and Firebase for hosting.
 
 
 https://clone-ms.web.app
