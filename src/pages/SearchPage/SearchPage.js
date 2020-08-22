@@ -15,8 +15,11 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 function SearchPage() {
     const [{ term }, dispatch] = useStateValue()
 
-    // const { data } = useGoogleSearch(term)
-    const data = response
+    //Live API
+    const { data } = useGoogleSearch(term)
+
+    //Mock API Call
+    // const data = response
 
     console.log(data)
     return (
@@ -65,10 +68,39 @@ function SearchPage() {
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="searchPage__results">
+            </div>  
+            {term && (
+                <div className="searchPage__results">
+                    <p className="seachPage__resultCount">
+                        About {data?.searchInformation.formattedTotalResults} results ({data?.searchInformation.searchTime} seconds) for {term}
+                    </p>
 
-            </div>
+                    {data?.items.map(item => (
+                        <div className="searchPage__result">
+                            <a href={item.link}>
+                                
+                                {
+                                    item.pagemap?.cse_image?.length > 0 && 
+                                        item.pagemap?.cse_image[0]?.src && (
+                                        <img 
+                                        src={item.pagemap?.     cse_image?.length > 0 && 
+                                            item.pagemap?.cse_image[0]?.src}
+                                        className="searchPage__resultImage"    
+                                        alt=""
+                                        />
+                                    )
+                                }
+                            
+                                {item.displayLink}
+                            </a>
+                            <a className="searchPage__resultTitle" href={item.link}>
+                                <h2>{item.title}</h2>
+                            </a>
+                            <p className="searchPage__resultSnippet">{item.snippet}</p>
+                        </div>
+                    ))}
+                </div>
+            )}  
         </div>
     )
 }
