@@ -1,3 +1,5 @@
+keys.js not in the project. You should put an API_KEY in it.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
