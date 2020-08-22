@@ -15,7 +15,7 @@ const useGoogleSearch = (term) => {
     }
 
     useEffect(() => { 
-        //fetchData()
+        fetchData()
 
     }, [term])
 
